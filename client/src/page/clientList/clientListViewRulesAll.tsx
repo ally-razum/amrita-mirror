@@ -1,9 +1,7 @@
-import { useUser } from '../../userContext/userContext';
+
 import ErrorPage401 from '../errorPage/errorPage401';
 import ErrorPage403 from '../errorPage/errorPage403';
 
-// import ClientTable from './clientListAdminModerator/clientList';
-import ClientTableTorsunov from './clientListTorsunov/clientListTorsunov';
 
 
 
@@ -30,4 +28,4 @@ function AllListViewRules (): JSX.Element {
   
   }
   
-  export default AllListViewRules;
+export default AllListViewRules

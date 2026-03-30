@@ -65,10 +65,10 @@ const oilListItems = [
   {id: "01", oilName: "№ 01"},
 ]
 
-function ClientTable(): JSX.Element {
+function ClientTable(){
   const navigate = useNavigate();
   const [selectedColumns, setSelectedColumns] = useState(columnOptions.map(col => col.id));
-  const [clients, setClients] = useState<Client[]>([]);
+  const [clients, setClients] = useState([]);
   const [notification, setNotification] = useState<{ open: boolean; message: string }>({
     open: false,
     message: '',
@@ -82,8 +82,10 @@ function ClientTable(): JSX.Element {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await client.get('/client/list');
-        setClients(response.data);
+        const response = await fetch(
+          "https://69aaf880e051e9456fa2f987.mockapi.io/card",
+        );
+        // setClients(response);
       } catch (error) {
         console.error('Ошибка при загрузке данных по запросу клиент листа:', error);
       }

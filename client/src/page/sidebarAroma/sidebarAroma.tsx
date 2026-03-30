@@ -2,7 +2,7 @@ import { Button, Box} from '@mui/material';
 import { Link } from "react-router-dom";
 
 
-function SidebarAroma (): JSX.Element {
+function SidebarAroma () {
     return (
         <>
         <Box

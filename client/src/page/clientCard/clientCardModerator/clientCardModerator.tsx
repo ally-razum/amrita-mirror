@@ -2,7 +2,7 @@ import { Box,  TextField, Typography, Button,
         FormControl, InputLabel, styled, Dialog, DialogActions, 
         DialogContent, DialogTitle, FormControlLabel, Checkbox } from "@mui/material";
 import { useState } from "react";
-import { useUser } from '../../../userContext/userContext';
+
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import client from '../../../api/client.ts';
@@ -14,7 +14,7 @@ const CustomInput = styled('input')({
 
 
 function ClientCardModerator (): JSX.Element {
-  const { user } = useUser();
+  
   const navigate = useNavigate();   
 
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);

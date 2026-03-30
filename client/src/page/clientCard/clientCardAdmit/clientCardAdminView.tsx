@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'; // для навигации
 import client from '../../../api/client.ts';
-import { useUser } from '../../../userContext/userContext'; // импортируем контекст
+
 
 
 

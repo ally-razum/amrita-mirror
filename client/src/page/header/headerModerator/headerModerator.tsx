@@ -2,8 +2,7 @@
 import client from '../../../api/client.ts';
 import { useState } from 'react';
 import {  Toolbar, Menu,  MenuItem, Button, ListItemIcon ,Box } from '@mui/material';
-import { useUser } from '../../../userContext/userContext';
-// import { Link } from "react-router-dom";
+
 import { useNavigate } from 'react-router-dom';
 import Settings from '@mui/icons-material/Settings';
 
@@ -21,7 +20,7 @@ import ErrorOutlineTwoToneIcon from '@mui/icons-material/ErrorOutlineTwoTone';
 import DoneOutline from '@mui/icons-material/DoneOutline'; // Иконка для главной страницы
 
 const HeaderModerator = () => {
-  const { setUser} = useUser(); // Получаем функцию для очистки пользователя из контекста и самого юзера
+  
   // console.log(useUser,'userName из хедера');
   const navigate = useNavigate();
   const handleNavigation = (path: string) => {
@@ -29,20 +28,6 @@ const HeaderModerator = () => {
   };
   
 
-  const handleLogout = async () => {
-    try {
-      // Отправляем запрос на сервер для выхода из аккаунта
-      const response = await client.get('/logout', { withCredentials: true });
-      
-      if (response.status === 200) {
-        // console.log('Пользователь успешно вышел из аккаунта');
-        setUser(null); // Очищаем пользователя из контекста
-        navigate('/'); // Перенаправляем на стартовую страницу
-      }
-    } catch (error) {
-      console.error('Ошибка при выходе из аккаунта:', error);
-    }
-  };
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);

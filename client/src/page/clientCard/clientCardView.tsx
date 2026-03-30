@@ -1,13 +1,10 @@
-import { useUser } from '../../userContext/userContext';
 import ErrorPage401 from '../errorPage/errorPage401';
 import ClientCardAdminView from "./clientCardAdmit/clientCardAdminView";
 import ClientCardModeratorView from "./clientCardModerator/clientCardModeratorView";
-import ClientCardTorsunovView from './clientCardTorsunov/clientCardTorsunovView';
 
 
-function ClientCardView (): JSX.Element {
+function ClientCardView (){
 
-  const { user, } = useUser(); 
   if (user){
     if ((user?.userRole === "admin") ) {
     return (     
@@ -23,7 +20,7 @@ function ClientCardView (): JSX.Element {
   } else {
     // console.log('Rendering Torsunov ');
     return (      
-      <ClientCardTorsunovView/>
+      <>1</>
       );
   }
   }
