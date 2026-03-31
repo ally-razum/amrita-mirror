@@ -7,22 +7,13 @@ import {
 
 import ClientCard from "../page/clientCard/clientCard";
 import MainPageAroma from "../page/mainPageAroma/mainPageAroma";
-
 import Header from "../page/header/Header";
-
 import ClientCardView from "../page/clientCard/clientCardView";
-
-
 import ClientListViewRules from "../page/clientList/clientListViewRules";
-
-
-
 import Footer from "../page/Footer/Footer";
 import ErrorPage404 from "../page/errorPage/errorPage404";
 import SigninBox from "../page/auth/LoginPage";
-
 import UserList from "../page/users/usersList";
-
 import ErrorPage403 from "../page/errorPage/errorPage403";
 
 const AppContent = () => {
@@ -52,16 +43,8 @@ function App() {
   return (
     <>
       <Router>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            minHeight: "100vh",
-          }}
-        >
-          <AppContent />
-          <Footer />
-        </div>
+        <AppContent />
+        <Footer />
       </Router>
     </>
   );

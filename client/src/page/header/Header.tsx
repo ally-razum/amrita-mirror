@@ -3,7 +3,7 @@ import { AppBar } from "@mui/material";
 import HeaderAdmin from "./hearedAdmit/headerAdmin";
 import HeaderModerator from "./headerModerator/headerModerator";
 
-const Header = () => {
+function Header ()  {
   const user = ["admin", "moderator"];
 
   if (user) {
