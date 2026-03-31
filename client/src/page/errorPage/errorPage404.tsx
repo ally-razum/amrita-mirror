@@ -10,7 +10,6 @@ function ErrorPage404() {
     >
       <Card
         sx={{
-          maxWidth: 600,
           marginLeft: 0,
           position: "relative",
           borderRadius: 20,
@@ -23,9 +22,15 @@ function ErrorPage404() {
           alt="logo"
         />
       </Card>
+
       <Typography>
         <h2>Ого! Даже мы не знаем, как вы сюда попали !</h2>
-
+        <img
+          src="../../../public/images/404_cat.png"
+          alt="🧐"
+          width="150"
+          height="150"
+        />
         <picture>
           <source
             srcSet="https://fonts.gstatic.com/s/e/notoemoji/latest/1f9d0/512.webp"
@@ -34,13 +39,13 @@ function ErrorPage404() {
           <img
             src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f9d0/512.gif"
             alt="🧐"
-            width="150"
-            height="150"
+            width="50"
+            height="50"
           />
         </picture>
-        
-          <Link to="/"> Вернуться на главную</Link>
-        
+        <br />
+
+        <Link to="/"> Вернуться на главную</Link>
       </Typography>
     </Box>
   );

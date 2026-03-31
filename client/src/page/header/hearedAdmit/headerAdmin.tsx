@@ -69,7 +69,6 @@ const HeaderAdmin = () => {
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        {/* AROMA cabinet */}
         <Button
           type="submit"
           variant="contained"
@@ -81,12 +80,11 @@ const HeaderAdmin = () => {
             borderRadius: 20,
             backgroundColor: "#f06292",
           }}
-          onClick={() => handleNavigation("/cabinet")}
+          onClick={() => handleNavigation("/dashboard")}
         >
           AROMA cabinet
         </Button>
 
-        {/* admin panel */}
         <Button
           onClick={handleMenuOpen}
           variant="contained"
@@ -125,7 +123,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation("/users");
+              handleNavigation("/dashboard/users");
               handleMenuClose();
             }}
           >
@@ -136,7 +134,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation("/newuser");
+              handleNavigation("/dashboard/users/new");
               handleMenuClose();
             }}
           >
@@ -159,7 +157,7 @@ const HeaderAdmin = () => {
         <Menu anchorEl={anchorEl2} open={open2} onClose={handleMenuClose2}>
           <MenuItem
             onClick={() => {
-              handleNavigation("/clientlist");
+              handleNavigation("/dashboard/cards");
               handleMenuClose2();
             }}
           >
@@ -170,7 +168,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation("/newcard");
+              handleNavigation("/dashboard/cards/new");
               handleMenuClose2();
             }}
           >

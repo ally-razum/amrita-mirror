@@ -54,7 +54,7 @@ const MainPageAroma: React.FC = () => {
               }}
             >
               <Link
-                to="/clientlist"
+                to="/dashboard/cards"
                 style={{
                   marginLeft: 5,
                   textDecoration: "none",
@@ -64,7 +64,7 @@ const MainPageAroma: React.FC = () => {
                 <ListItemIcon sx={{ position: "absolute", left: 16 }}>
                   <GroupIcon />
                 </ListItemIcon>
-                Все заявки
+                Таблица клиентов
               </Link>
             </Button>
             <Button
@@ -84,7 +84,7 @@ const MainPageAroma: React.FC = () => {
               }}
             >
               <Link
-                to="/newcard"
+                to="/dashboard/cards/new"
                 style={{
                   marginLeft: 5,
                   textDecoration: "none",

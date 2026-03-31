@@ -12,7 +12,7 @@ function LoginPage() {
 
   const handleLogin = () => {
     // имитирование входа по логину и паролю (в реальном кейсе был запрос на сервер к бд)
-    navigate("/cabinet");
+    navigate("/dashboard");
   };
 
   return (
