@@ -1,0 +1,11 @@
+src/
+  shared/
+    ui/
+      Button/
+      Input/
+    lib/
+      helpers.ts
+    mocks/
+      users.ts
+    types/
+      index.ts

@@ -60,10 +60,15 @@ const HeaderAdmin = () => {
 
 
   
-  return (  
-     
-    <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+  return (
+    <Toolbar
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         {/* AROMA cabinet */}
         <Button
           type="submit"
@@ -74,8 +79,9 @@ const HeaderAdmin = () => {
             marginRight: 2,
             marginBottom: 2,
             borderRadius: 20,
+            backgroundColor: "#f06292",
           }}
-          onClick={() => handleNavigation('/cabinet')}
+          onClick={() => handleNavigation("/cabinet")}
         >
           AROMA cabinet
         </Button>
@@ -84,16 +90,20 @@ const HeaderAdmin = () => {
         <Button
           onClick={handleMenuOpen}
           variant="contained"
-          color="secondary"
           startIcon={<AdminPanelSettingsIcon />}
-          sx={{ borderRadius: 20, fontSize: 15, marginRight: 2 }}
+          sx={{
+            borderRadius: 20,
+            fontSize: 15,
+            marginRight: 2,
+            backgroundColor: "#f06292",
+          }}
         >
           admin panel
         </Button>
         <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
           <MenuItem
             onClick={() => {
-              handleNavigation('/diagnoslist');
+              handleNavigation("/diagnoslist");
               handleMenuClose();
             }}
           >
@@ -104,7 +114,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation('/oillist');
+              handleNavigation("/oillist");
               handleMenuClose();
             }}
           >
@@ -115,7 +125,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation('/users');
+              handleNavigation("/users");
               handleMenuClose();
             }}
           >
@@ -126,7 +136,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation('/newuser');
+              handleNavigation("/newuser");
               handleMenuClose();
             }}
           >
@@ -141,16 +151,15 @@ const HeaderAdmin = () => {
         <Button
           onClick={handleMenuOpen2}
           variant="contained"
-          color="secondary"
           startIcon={<LibraryBooksIcon />}
-          sx={{ borderRadius: 20, fontSize: 15 }}
+          sx={{ borderRadius: 20, fontSize: 15, backgroundColor: "#f06292" }}
         >
           Карточки
         </Button>
         <Menu anchorEl={anchorEl2} open={open2} onClose={handleMenuClose2}>
           <MenuItem
             onClick={() => {
-              handleNavigation('/clientlist');
+              handleNavigation("/clientlist");
               handleMenuClose2();
             }}
           >
@@ -161,7 +170,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation('/newcard');
+              handleNavigation("/newcard");
               handleMenuClose2();
             }}
           >
@@ -172,7 +181,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation('/unready');
+              handleNavigation("/unready");
               handleMenuClose2();
             }}
           >
@@ -183,7 +192,7 @@ const HeaderAdmin = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleNavigation('/done');
+              handleNavigation("/done");
               handleMenuClose2();
             }}
           >
@@ -198,20 +207,22 @@ const HeaderAdmin = () => {
       {/* выход */}
       <Button
         onClick={() => {
-          
-          handleNavigation('/');
+          handleNavigation("/");
         }}
         type="submit"
-        color="warning"
         variant="contained"
-        sx={{ fontSize: 15, marginTop: 2, marginBottom: 2, borderRadius: 20 }}
+        sx={{
+          fontSize: 15,
+          marginTop: 2,
+          marginBottom: 2,
+          borderRadius: 20,
+          backgroundColor: "#880e4f",
+        }}
       >
         выход
       </Button>
-
-    
     </Toolbar>
-     );
+  );
 };
 
 export default HeaderAdmin;

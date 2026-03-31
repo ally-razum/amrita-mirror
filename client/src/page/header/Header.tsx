@@ -9,7 +9,7 @@ const Header = () => {
   if (user) {
     if (user[0]) {
       return (
-        <AppBar position="sticky" sx={{ backgroundColor: "#2e7d32" }}>
+        <AppBar position="sticky" sx={{ backgroundColor: "#ec407a" }}>
           <HeaderAdmin />
         </AppBar>
       );

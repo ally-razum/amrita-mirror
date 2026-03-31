@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
 
-const Footer = () => {
+function Footer (){
   return (
     <Box
       component="footer"
       sx={{
         width: "98,5%",
-        backgroundColor: "#4a148c", 
+        backgroundColor: "#ad1457",
         color: "white",
         py: 1,
         px: 2,
@@ -28,14 +28,12 @@ const Footer = () => {
         {/* Логотип или краткая информация */}
         <Box>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-            Aroma Cabinet
+            Amrita mirror DEMO
           </Typography>
           <Typography variant="body2">
-            © 2025 Razumovskaia A.  All rights reserved. <br />
-           
+            © 2026 Ally A. All rights reserved. <br />
           </Typography>
         </Box>
-       
       </Box>
     </Box>
   );
