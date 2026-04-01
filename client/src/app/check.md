@@ -12,3 +12,15 @@
 "/error"  
                     /dashboard/cards/:cardId/edit → CardEditPage
                    
+AppContent.tsx
+
+src/
+ ├─ app/
+ │   ├─ App.tsx            ← точка входа приложения
+ │   ├─ AppContent.tsx     ← компонент с роутингом
+ │   └─ routesConfig.ts    ← объект с маршрутами
+ ├─ pages/                 ← страницы (Pages)
+ ├─ entities/              ← бизнес-сущности
+ ├─ features/              ← фичи
+ ├─ widgets/               ← виджеты
+ └─ shared/                ← переиспользуемый код

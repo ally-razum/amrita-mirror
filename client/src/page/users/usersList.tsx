@@ -46,7 +46,7 @@ function UserList() {
   return (
     <>
       <Typography variant="h5" gutterBottom align="center">
-        Все зарегистрированные пользователи арома - кабинета
+        Все  пользователи 
       </Typography>
 
       <FormGroup row sx={{ justifyContent: "center", marginBottom: "20px" }}>

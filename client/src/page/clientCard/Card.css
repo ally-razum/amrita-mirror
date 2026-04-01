@@ -1,0 +1,78 @@
+/* Card.css */
+
+.card-page {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-page__container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.card-page__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-page__actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-page__content {
+  display: flex;
+  gap: 30px;
+}
+
+.card-page__left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.card-page__image {
+ 
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-page__right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-page__field input,
+.card-page__field textarea,
+.card-page__field select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.card-page__field textarea {
+  resize: none;
+}
+
+.card-page__field input:focus,
+.card-page__field textarea:focus,
+.card-page__field select:focus {
+  outline: none;
+  border-color: #ba68c8;
+}

@@ -1,16 +1,8 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import AppContent from "./AppContent";
-import Footer from "../page/Footer/Footer";
+import { RouterProvider } from "react-router-dom";
+import router from "../app/providers/router";
 
 function App() {
-  return (
-    <>
-      <Router>
-        <AppContent />
-        <Footer />
-      </Router>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

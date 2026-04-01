@@ -7,7 +7,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox"; // Иконка для со
 import PlaylistAdd from "@mui/icons-material/PlaylistAdd"; // Иконка для диагнозов
 import SpaIcon from "@mui/icons-material/Spa"; // Иконка для масел
 
-function  MainPageAroma (){
+function  MainPage (){
   return (
     <Box marginLeft={10} sx={{ display: "flex", alignItems: "center" }}>
       {
@@ -166,4 +166,4 @@ function  MainPageAroma (){
   );
 };
 
-export default MainPageAroma;
+export default MainPage;

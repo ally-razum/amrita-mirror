@@ -1,11 +1,10 @@
 //todo БЕЗ МЮИ
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoginPage.css";
+import "./Login.css";
 
 
-function LoginPage() {
+function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -44,4 +43,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default Login;

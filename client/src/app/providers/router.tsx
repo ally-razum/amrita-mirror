@@ -1,0 +1,68 @@
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../Layout";
+import Login from "../../page/login/Login";
+import MainPage from "../../page/mainPageAroma/MainPage";
+import ClientListViewRules from "../../page/clientList/clientListViewRules";
+import NewCard from "../../page/clientCard/NewCard";
+import Card from "../../page/clientCard/Card";
+import EditCard from "../../page/clientCard/EditCard";
+import UserList from "../../page/users/usersList";
+import ErrorPage403 from "../../page/errorPage/errorPage403";
+import UserCard from "../../page/users/userCard";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />, 
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "dashboard",
+        element: <MainPage />,
+      },
+      {
+        path: "dashboard/cards",
+        children: [
+          {
+            path: "",
+            element: <ClientListViewRules />,
+          },
+          {
+            path: "new",
+            element: <NewCard />,
+          },
+          {
+            path: ":cardId",
+            element: <Card />,
+          },
+          {
+            path: ":cardId/edit",
+            element: <EditCard />,
+          },
+        ],
+      },
+      {
+        path: "dashboard/users",
+        children: [
+          {
+            path: "",
+            element: <UserList />,
+          },
+          {
+            path: "new",
+            element: <ErrorPage403 />,
+          },
+          {
+            path: ":userId",
+            element: <UserCard />,
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+export default router;
