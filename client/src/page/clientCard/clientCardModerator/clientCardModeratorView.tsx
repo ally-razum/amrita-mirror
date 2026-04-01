@@ -41,7 +41,7 @@ interface EarData {
   earRight_isTop: boolean;
 }
 
-const ClientCardModeratorView: React.FC = () => {
+function ClientCardModeratorView (){
   const { clientId } = useParams<{ clientId: string }>(); // Получаем ID клиента из URL
   const [cardData, setCardData] = useState<CardData | null>(null); // Используем интерфейс
   const [loading, setLoading] = useState(true);

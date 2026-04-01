@@ -1,7 +1,6 @@
-import { Card, CardMedia, Box, Typography} from '@mui/material';
+import { Card, CardMedia, Box, Typography } from "@mui/material";
 
-
-function ErrorPage403(): JSX.Element {
+function ErrorPage403() {
   return (
     <Box
       marginLeft={10}

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Box, Card, CardMedia, Button, ListItemIcon } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox"; // Иконка для со
 import PlaylistAdd from "@mui/icons-material/PlaylistAdd"; // Иконка для диагнозов
 import SpaIcon from "@mui/icons-material/Spa"; // Иконка для масел
 
-const MainPageAroma: React.FC = () => {
+function  MainPageAroma (){
   return (
     <Box marginLeft={10} sx={{ display: "flex", alignItems: "center" }}>
       {

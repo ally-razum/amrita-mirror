@@ -1,9 +1,11 @@
 import ClientCardAdmin from "./clientCardAdmit/clientCardAdmin";
 
-export default function ClientCardDemo() {
+function ClientCardDemo() {
   return (
     <div>
       <ClientCardAdmin />
     </div>
   );
 }
+
+export default ClientCardDemo;

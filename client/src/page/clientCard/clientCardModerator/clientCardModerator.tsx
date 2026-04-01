@@ -13,7 +13,7 @@ const CustomInput = styled('input')({
 });
 
 
-function ClientCardModerator (): JSX.Element {
+function ClientCardModerator (){
   
   const navigate = useNavigate();   
 

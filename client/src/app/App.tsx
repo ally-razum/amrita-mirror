@@ -16,7 +16,7 @@ import SigninBox from "../page/auth/LoginPage";
 import UserList from "../page/users/usersList";
 import ErrorPage403 from "../page/errorPage/errorPage403";
 
-const AppContent = () => {
+function AppContent() {
   const location = useLocation(); // Получаем текущий маршрут
 
   return (

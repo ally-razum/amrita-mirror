@@ -9,7 +9,7 @@ import ErrorOutlineTwoToneIcon from '@mui/icons-material/ErrorOutlineTwoTone';
 
 
 
-const HeaderUser = () => {
+function HeaderUser () {
  
   const navigate = useNavigate();
   

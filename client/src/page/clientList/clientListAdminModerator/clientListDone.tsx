@@ -63,7 +63,7 @@ const oilListItems = [
   {id: "01", oilName: "№ 01"},
 ]
 
-function ClientTableDone(): JSX.Element {
+function ClientTableDone() {
   const navigate = useNavigate();   
   const [selectedColumns, setSelectedColumns] = useState(columnOptions.map(col => col.id));
 

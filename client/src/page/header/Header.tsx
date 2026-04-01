@@ -3,7 +3,7 @@ import { AppBar } from "@mui/material";
 import HeaderAdmin from "./hearedAdmit/headerAdmin";
 import HeaderModerator from "./headerModerator/headerModerator";
 
-function Header ()  {
+function Header() {
   const user = ["admin", "moderator"];
 
   if (user) {
@@ -26,12 +26,11 @@ function Header ()  {
         </AppBar>
       );
     } else {
-     
       return <></>;
     }
   } else {
     return <> ERROR 401</>;
   }
-};
+}
 
 export default Header;

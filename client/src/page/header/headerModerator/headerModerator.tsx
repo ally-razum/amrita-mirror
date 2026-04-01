@@ -1,5 +1,4 @@
-/* eslint-disable no-constant-condition */
-import client from '../../../api/client.ts';
+
 import { useState } from 'react';
 import {  Toolbar, Menu,  MenuItem, Button, ListItemIcon ,Box } from '@mui/material';
 
@@ -19,7 +18,7 @@ import LibraryBooksIcon  from '@mui/icons-material/LibraryBooks';
 import ErrorOutlineTwoToneIcon from '@mui/icons-material/ErrorOutlineTwoTone';
 import DoneOutline from '@mui/icons-material/DoneOutline'; // Иконка для главной страницы
 
-const HeaderModerator = () => {
+function HeaderModerator  () {
   
   // console.log(useUser,'userName из хедера');
   const navigate = useNavigate();
@@ -148,7 +147,7 @@ const HeaderModerator = () => {
     {/* ВЫЙТИ */}
     <Button
       onClick={() => {
-        handleLogout();
+       
         handleNavigation('/');
       }}
       type="submit"

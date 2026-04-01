@@ -18,7 +18,7 @@ import DoneOutline from '@mui/icons-material/DoneOutline'; // Иконка дл�
 
 
 
-const HeaderAdmin = () => {
+function HeaderAdmin  ()  {
  
   const navigate = useNavigate();
 

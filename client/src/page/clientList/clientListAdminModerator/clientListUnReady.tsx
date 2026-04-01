@@ -59,7 +59,7 @@ const oilListItems = [
   {id: "9", oilName: "№ 9"},
   {id: "01", oilName: "№ 01"},
 ]
-function ClientTableUnReady (): JSX.Element {
+function ClientTableUnReady (){
   const navigate = useNavigate();   
   const [selectedColumns, setSelectedColumns] = useState(columnOptions.map(col => col.id));
 

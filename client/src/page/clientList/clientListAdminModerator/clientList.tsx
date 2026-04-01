@@ -1,5 +1,5 @@
-import client from '../../../api/client.ts';
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import {
   Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   Checkbox, FormControlLabel, FormGroup, Box,  Snackbar, Alert,
@@ -11,21 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import {mockCards} from '../../../entities/cards/mockCards.ts' 
 import type {Card} from '../../../entities/cards/types.ts'
 
-// interface Client {
-//   id: number;
-//   cardUser_Id: string;
-//   cardClientNumber: string;
-//   cardFullName: string;
-//   cardPhone: string;
-//   cardBasicDiagnosis: string;
-//   cardHealthComplaints: string;
-//   cardDeliveryAddress: string;
-//   cardFinalDiagnosis: string | undefined;
-//   cardOilFromList: string | undefined;
-//   cardRecepi: string | undefined;
-//   card_IsChecked: boolean;
-//   createdAt: string;
-// }
 
 const columnOptions = [
   { id: 'cardDBID', label: 'Номер' },
