@@ -1,10 +1,8 @@
 export interface Card {
-  cardUser_Id: number;
-  cardClientNumber: string;
+  id: number;
   cardPhoto: string;
   cardFullName: string;
   cardPhone: string;
-  cardBasicDiagnosis: string;
   cardHealthComplaints: string;
   cardDeliveryAddress: string;
   cardFinalDiagnosis: string | null;

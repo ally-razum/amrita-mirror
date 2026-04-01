@@ -1,36 +1,46 @@
+import React, { useState } from "react";
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Typography,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Box,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useNavigate } from "react-router-dom";
+import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 
-import React, { useState } from 'react';
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Checkbox, FormControlLabel, FormGroup, Box } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { useNavigate } from 'react-router-dom';
-import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
-
-import  {users} from '../../shared/mocks/users'
-import {userColumns} from '../../entities/users/column'
-
+import { users } from "../../entities/users/mockUsers";
+import { userColumns } from "../../entities/users/column";
 
 function UserList() {
-console.log("THIS is UserList");
+  console.log("THIS is UserList");
 
-  const navigate = useNavigate();   
+  const navigate = useNavigate();
   const [selectedColumns, setSelectedColumns] = useState(
     userColumns.map((col) => col.id),
   );
 
   const handleColumnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
-    setSelectedColumns(prev =>
-      checked ? [...prev, name] : prev.filter(col => col !== name)
+    setSelectedColumns((prev) =>
+      checked ? [...prev, name] : prev.filter((col) => col !== name),
     );
   };
 
-
-
-   // Функция для просмотра карточки 
-   const handleViewUser = async (userId: number) => {
-    console.log('VIEW CARD', userId);  
-    navigate(`/users/${userId}`);   
+  // Функция для просмотра карточки
+  const handleViewUser = async (userId: number) => {
+    console.log("VIEW CARD", userId);
+    navigate(`/users/${userId}`);
   };
 
   return (
@@ -147,11 +157,9 @@ console.log("THIS is UserList");
                         <DoNotDisturbAltIcon />
                       </Button>
                     )}{" "}
-                    
                     {index >= 3 && (
                       <Button
                         variant="contained"
-                        
                         // Вызов confirmDelete для подтверждения удаления
                         sx={{
                           textTransform: "none",

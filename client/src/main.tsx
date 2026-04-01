@@ -1,16 +1,12 @@
-import ReactDOM from 'react-dom/client';
-import App from './app/App';
-import './index.css';
-import Modal from 'react-modal';
+import ReactDOM from "react-dom/client";
+import App from "./app/App";
+import "./index.css";
+import Modal from "react-modal";
 
+const root = document.getElementById("root");
 
-const appRoot = document.getElementById('root');
-if (appRoot) {
-Modal.setAppElement(appRoot);
+if (!root) throw new Error("Root not found");
 
-ReactDOM.createRoot(appRoot!).render(
-    <App />
-);
-} else {
-  console.error("App root element not found");
-}
+Modal.setAppElement(root);
+
+ReactDOM.createRoot(root).render(<App />);
