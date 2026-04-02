@@ -4,10 +4,8 @@ import type { Card } from "../../../entities/card/model/types";
 import { useDispatch } from "react-redux";
 import { addCard } from "../../../entities/card/model/cardsSlice";
 import type { AppDispatch } from "../../../app/store/store";
-import { validateCard } from "../../../shared/lib/validateCard";
 
-
-function useCreateCard() {
+function useEditCard() {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const [data, setData] = useState<Partial<Card>>({
@@ -38,28 +36,46 @@ function useCreateCard() {
     });
   };
 
+  //загрузка фотки
   const handlePhotoChange = (file: File) => {
     setPhotoPreview(URL.createObjectURL(file));
   };
 
+  const validate = () => {
+    const newErrors: Partial<Record<keyof Card, string>> = {};
+    let isValid = true;
 
-const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-  e.preventDefault();
+    const fullNameRegex = /^[A-Za-zА-Яа-я]+ [A-Za-zА-Яа-я]+ [A-Za-zА-Яа-я]+$/;
+    const phoneRegex = /^[\d\s\-+]*$/;
+    const addressRegex = /^[A-Za-zА-Яа-я0-9\s,.-]{10,}$/;
 
-  const newErrors = validateCard(data);
-  const isValid = Object.keys(newErrors).length === 0;
-  setErrors(newErrors);
+    if (!fullNameRegex.test(data.cardFullName ?? "")) {
+      newErrors.cardFullName = "ФИО должно состоять из трёх слов";
+      isValid = false;
+    }
+    if (!phoneRegex.test(data.cardPhone ?? "")) {
+      newErrors.cardPhone = "Только цифры, пробелы, - или +";
+      isValid = false;
+    }
+    if (!addressRegex.test(data.cardDeliveryAddress ?? "")) {
+      newErrors.cardDeliveryAddress = "Минимум 10 символов";
+      isValid = false;
+    }
 
-  if (!isValid) {
-    setErrorMessage("Проверьте данные карточки");
-    return;
-  }
+    setErrors(newErrors);
+    return isValid;
+  };
 
-  setErrorMessage("");
-  dispatch(addCard(data as Card));
-  navigate("/dashboard/cards");
-};
-  
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!validate()) {
+      setErrorMessage("Проверьте данные карточки");
+      return;
+    }
+    setErrorMessage("");
+    dispatch(addCard(data as Card));
+    navigate("/dashboard/cards");
+  };
 
   return {
     data,
@@ -72,4 +88,4 @@ const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
   };
 }
 
-export default useCreateCard;
+export default useEditCard;

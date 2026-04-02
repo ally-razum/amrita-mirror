@@ -35,8 +35,15 @@ const cardsSlice = createSlice({
       saveToStorage(updated);
       return updated;
     },
+    updateCard: (state, action: PayloadAction<Card>) => {
+      const index = state.findIndex((c) => c.id === action.payload.id);
+      if (index !== -1) {
+        state[index] = action.payload;
+        saveToStorage(state);
+      }
+    },
   },
 });
 
-export const { addCard, deleteCard } = cardsSlice.actions;
+export const { addCard, deleteCard, updateCard } = cardsSlice.actions;
 export default cardsSlice.reducer;
