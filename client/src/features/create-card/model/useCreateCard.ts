@@ -1,75 +1,34 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Card } from "../../../entities/card/model/types";
 import { useDispatch } from "react-redux";
 import { addCard } from "../../../entities/card/model/cardsSlice";
 import type { AppDispatch } from "../../../app/store/store";
 import { validateCard } from "../../../shared/lib/validateCard";
-
+import useCardForm from "../../../shared/lib/useCardForm";
 
 function useCreateCard() {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const [data, setData] = useState<Partial<Card>>({
-    cardFullName: "",
-    cardPhone: "",
-    cardDeliveryAddress: "",
-    cardHealthComplaints: "",
-    cardFinalDiagnosis: "",
-    cardOilFromList: "",
-    cardRecepi: "",
-    card_IsChecked: false,
-  });
+  const form = useCardForm();
 
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [errors, setErrors] = useState<Partial<Record<keyof Card, string>>>({});
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
 
-  //обновление полей карточки
-  const handleChange = (field: keyof Card, value: string | boolean) => {
-    setData((prev) => {
-      const updated = { ...prev, [field]: value };
+    const newErrors = validateCard(form.data);
+    const isValid = Object.keys(newErrors).length === 0;
+    form.setErrors(newErrors);
 
-      if (field === "cardFinalDiagnosis" || field === "cardOilFromList") {
-        updated.cardRecepi = `${updated.cardFinalDiagnosis ?? ""}${updated.cardOilFromList ?? ""}`;
-      }
+    if (!isValid) {
+      form.setErrorMessage("Проверьте данные карточки");
+      return;
+    }
 
-      return updated;
-    });
+    form.setErrorMessage("");
+    dispatch(addCard(form.data as Card));
+    navigate("/dashboard/cards");
   };
 
-  const handlePhotoChange = (file: File) => {
-    setPhotoPreview(URL.createObjectURL(file));
-  };
-
-
-const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-  e.preventDefault();
-
-  const newErrors = validateCard(data);
-  const isValid = Object.keys(newErrors).length === 0;
-  setErrors(newErrors);
-
-  if (!isValid) {
-    setErrorMessage("Проверьте данные карточки");
-    return;
-  }
-
-  setErrorMessage("");
-  dispatch(addCard(data as Card));
-  navigate("/dashboard/cards");
-};
-  
-
-  return {
-    data,
-    photoPreview,
-    errors,
-    errorMessage,
-    handleChange,
-    handlePhotoChange,
-    handleSubmit,
-  };
+  return { ...form, handleSubmit };
 }
 
 export default useCreateCard;

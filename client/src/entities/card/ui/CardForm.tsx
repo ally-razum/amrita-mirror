@@ -4,7 +4,7 @@ import type { Card } from "../../../entities/card/model/types";
 import "./CardForm.css";
 
 interface Props {
-  mode: "view" | "create";
+  mode: "view" | "create" | "edit";
   data: Partial<Card>;
   errors?: Partial<Record<keyof Card, string>>;
   onChange?: (field: keyof Card, value: string | boolean) => void;
@@ -13,7 +13,16 @@ interface Props {
   errorMessage?: string;
   onSubmit?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
-function CardForm({mode, data, errors = {}, onChange, onPhotoChange, photoPreview, errorMessage, onSubmit}: Props) {
+function CardForm({
+  mode,
+  data,
+  errors = {},
+  onChange,
+  onPhotoChange,
+  photoPreview,
+  errorMessage,
+  onSubmit,
+}: Props) {
   const isView = mode === "view";
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -182,7 +191,7 @@ function CardForm({mode, data, errors = {}, onChange, onPhotoChange, photoPrevie
 
             {!isView && (
               <button type="submit" onClick={onSubmit}>
-                Добавить карточку
+                {mode === "edit" ? "Сохранить" : "Добавить карточку"}
               </button>
             )}
           </div>
