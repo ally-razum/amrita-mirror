@@ -18,13 +18,16 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useNavigate } from "react-router-dom";
-import { mockCards } from "../../../entities/card/model/mockCards.ts";
-import { cadrColumn } from "../../../shared/mocks/cardColumn.ts";
-import { diagnosis } from "../../../shared/mocks/diagnosis.ts";
-import { oils } from "../../../shared/mocks/oils.ts";
+// import { mockCards } from "../../entities/card/model/mockCards.ts";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../app/store/store";
+import { cadrColumn } from "../../shared/mocks/cardColumn.ts";
+import { diagnosis } from "../../shared/mocks/diagnosis.ts";
+import { oils } from "../../shared/mocks/oils.ts";
 
-function ClientTable() {
+function ClientList() {
   const navigate = useNavigate();
+  const cards = useSelector((state: RootState) => state.cards);
   const [selectedColumns, setSelectedColumns] = useState(
     cadrColumn.map((col) => col.id),
   );
@@ -140,7 +143,7 @@ function ClientTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {mockCards.map((client) => (
+              {cards.map((client) => (
                 <TableRow
                   key={`${client.id}`}
                   sx={{
@@ -219,4 +222,4 @@ function ClientTable() {
   );
 }
 
-export default ClientTable;
+export default ClientList;

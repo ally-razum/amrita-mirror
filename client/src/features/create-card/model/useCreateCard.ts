@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Card } from "../../../entities/card/model/types";
+import { useDispatch } from "react-redux";
+import { addCard } from "../../../entities/card/model/cardsSlice";
+import type { AppDispatch } from "../../../app/store/store";
 
 function useCreateCard() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch<AppDispatch>();
   const [data, setData] = useState<Partial<Card>>({
     cardFullName: "",
     cardPhone: "",
@@ -19,7 +22,7 @@ function useCreateCard() {
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [errors, setErrors] = useState<Partial<Record<keyof Card, string>>>({});
-  
+
   //обновление полей карточки
   const handleChange = (field: keyof Card, value: string | boolean) => {
     setData((prev) => {
@@ -32,7 +35,7 @@ function useCreateCard() {
       return updated;
     });
   };
-  
+
   //загрузка фотки
   const handlePhotoChange = (file: File) => {
     setPhotoPreview(URL.createObjectURL(file));
@@ -70,6 +73,7 @@ function useCreateCard() {
       return;
     }
     setErrorMessage("");
+    dispatch(addCard(data as Card));
     navigate("/dashboard/cards");
   };
 
