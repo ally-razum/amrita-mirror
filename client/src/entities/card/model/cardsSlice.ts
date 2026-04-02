@@ -30,9 +30,13 @@ const cardsSlice = createSlice({
       // сразу сохраняем в localStorage
       saveToStorage(state);
     },
-    //далее еще добавятся экшены типа удалить изменить
+    deleteCard: (state, action: PayloadAction<number>) => {
+      const updated = state.filter((c) => c.id !== action.payload);
+      saveToStorage(updated);
+      return updated;
+    },
   },
 });
 
-export const { addCard } = cardsSlice.actions;
+export const { addCard, deleteCard } = cardsSlice.actions;
 export default cardsSlice.reducer;

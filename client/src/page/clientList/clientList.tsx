@@ -18,15 +18,19 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useNavigate } from "react-router-dom";
-// import { mockCards } from "../../entities/card/model/mockCards.ts";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../app/store/store";
 import { cadrColumn } from "../../shared/mocks/cardColumn.ts";
 import { diagnosis } from "../../shared/mocks/diagnosis.ts";
 import { oils } from "../../shared/mocks/oils.ts";
 
+import { useDispatch } from "react-redux";
+import { deleteCard } from "../../entities/card/model/cardsSlice";
+import type { AppDispatch } from "../../app/store/store";
+
 function ClientList() {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const cards = useSelector((state: RootState) => state.cards);
   const [selectedColumns, setSelectedColumns] = useState(
     cadrColumn.map((col) => col.id),
@@ -55,6 +59,10 @@ function ClientList() {
     setNotification({ open: false, message: "" });
   };
 
+  const handleDeleteClient = (clientId: number) => {
+    dispatch(deleteCard(clientId));
+    setNotification({ open: true, message: "Карточка удалена!" });
+  };
   return (
     <>
       {/* Snackbar для уведомлений */}
@@ -207,6 +215,7 @@ function ClientList() {
                         variant="contained"
                         color="warning"
                         sx={{ textTransform: "none", borderRadius: 20 }}
+                        onClick={() => handleDeleteClient(client.id)}
                       >
                         <DeleteIcon />
                       </Button>
