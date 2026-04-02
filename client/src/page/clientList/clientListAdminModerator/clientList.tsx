@@ -1,39 +1,55 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
-  Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
-  Checkbox, FormControlLabel, FormGroup, Box,  Snackbar, Alert,
-} from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { useNavigate } from 'react-router-dom';
-import {mockCards} from '../../../entities/cards/mockCards.ts' 
-import { cadrColumn } from "../../../shared/mocks/cardColumn.ts"
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Box,
+  Snackbar,
+  Alert,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useNavigate } from "react-router-dom";
+import { mockCards } from "../../../entities/card/model/mockCards.ts";
+import { cadrColumn } from "../../../shared/mocks/cardColumn.ts";
 import { diagnosis } from "../../../shared/mocks/diagnosis.ts";
 import { oils } from "../../../shared/mocks/oils.ts";
 
-
-function ClientTable(){
+function ClientTable() {
   const navigate = useNavigate();
-  const [selectedColumns, setSelectedColumns] = useState(cadrColumn.map(col => col.id));
+  const [selectedColumns, setSelectedColumns] = useState(
+    cadrColumn.map((col) => col.id),
+  );
 
-  const [notification, setNotification] = useState<{ open: boolean; message: string }>({
+  const [notification, setNotification] = useState<{
+    open: boolean;
+    message: string;
+  }>({
     open: false,
-    message: '',
+    message: "",
   });
 
   const handleColumnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
-    setSelectedColumns(prev => checked ? [...prev, name] : prev.filter(col => col !== name));
+    setSelectedColumns((prev) =>
+      checked ? [...prev, name] : prev.filter((col) => col !== name),
+    );
   };
-
 
   const handleViewClient = (clientId: number) => {
     navigate(`/dashboard/cards/${clientId}`);
   };
 
   const handleCloseNotification = () => {
-    setNotification({ open: false, message: '' });
+    setNotification({ open: false, message: "" });
   };
 
   return (
@@ -138,15 +154,13 @@ function ClientTable(){
                     },
                   }}
                 >
-                  
                   {selectedColumns.includes("cardFullName") && (
                     <TableCell>{client.cardFullName}</TableCell>
                   )}
                   {selectedColumns.includes("cardPhone") && (
                     <TableCell>{client.cardPhone}</TableCell>
                   )}
-                  
-                 
+
                   {selectedColumns.includes("cardHealthComplaints") && (
                     <TableCell>{client.cardHealthComplaints}</TableCell>
                   )}
@@ -172,7 +186,7 @@ function ClientTable(){
                   {selectedColumns.includes("cardRecepi") && (
                     <TableCell>{client.cardRecepi}</TableCell>
                   )}
-               
+
                   <TableCell sx={{ whiteSpace: "nowrap" }}>
                     <Box display={"flex"} gap={2}>
                       <Button

@@ -1,19 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout";
 import Login from "../../page/login/Login";
-import MainPage from "../../page/mainPageAroma/MainPage";
+import MainPage from "../../page/mainPage/MainPage";
 import ClientListViewRules from "../../page/clientList/clientListViewRules";
-import NewCard from "../../page/clientCard/NewCard";
-import Card from "../../page/clientCard/Card";
+
 import EditCard from "../../page/clientCard/EditCard";
 import UserList from "../../page/users/usersList";
 import ErrorPage403 from "../../page/errorPage/errorPage403";
 import UserCard from "../../page/users/userCard";
+import CreateCard from "../../features/create-card/ui/CreateCard";
+import ViewCard from "../../features/view-card/ViewCard";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, 
+    element: <Layout />,
     children: [
       {
         path: "/",
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
           },
           {
             path: "new",
-            element: <NewCard />,
+            element: <CreateCard />,
           },
           {
             path: ":cardId",
-            element: <Card />,
+            element: <ViewCard/>,
           },
           {
             path: ":cardId/edit",
