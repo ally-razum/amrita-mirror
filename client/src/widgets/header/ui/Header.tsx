@@ -1,5 +1,3 @@
-/* eslint-disable no-constant-condition */
-// import client from '../../../api/client.ts';
 import { useState } from 'react';
 import { Box, Toolbar, Menu,  MenuItem, Button, ListItemIcon } from '@mui/material';
 
@@ -18,7 +16,7 @@ import DoneOutline from '@mui/icons-material/DoneOutline'; // Иконка дл�
 
 
 
-function HeaderAdmin  ()  {
+function Header  ()  {
  
   const navigate = useNavigate();
 
@@ -210,4 +208,4 @@ function HeaderAdmin  ()  {
   );
 };
 
-export default HeaderAdmin;
+export default Header;
