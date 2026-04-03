@@ -1,211 +1,75 @@
-import { useState } from 'react';
-import { Box, Toolbar, Menu,  MenuItem, Button, ListItemIcon } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import useHeaderMenu from "../model/useHeaderMenu";
+import { adminMenu, cardsMenu } from "../config/menuItems";
+import "./Header.css";
 
-import { useNavigate } from 'react-router-dom';
-
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import LibraryBooksIcon  from '@mui/icons-material/LibraryBooks';
-import GroupIcon from '@mui/icons-material/Group'; // Иконка для всех клиентов
-import AddBoxIcon from '@mui/icons-material/AddBox'; // Иконка для создания карточки
-import PlaylistAdd from '@mui/icons-material/PlaylistAdd'; // Иконка для диагнозов
-import SpaIcon from '@mui/icons-material/Spa'; // Иконка для масел
-import SecurityIcon from '@mui/icons-material/Security'; // Иконка для управления правами
-import GroupAdd from '@mui/icons-material/GroupAdd'; // Иконка для управления правами
-import ErrorOutlineTwoToneIcon from '@mui/icons-material/ErrorOutlineTwoTone';
-import DoneOutline from '@mui/icons-material/DoneOutline'; // Иконка для главной страницы
-
-
-
-function Header  ()  {
- 
+function Header() {
   const navigate = useNavigate();
+  const { menu1, menu2, openMenu1, closeMenu1, openMenu2, closeMenu2 } =
+    useHeaderMenu();
 
-  const handleNavigation = (path: string) => {
+  const go = (path: string) => {
     navigate(path);
   };
 
-
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);
-  const open2 = Boolean(anchorEl2);
-
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-  const handleMenuOpen2 = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl2(event.currentTarget);
-  };
-  const handleMenuClose2 = () => {
-    setAnchorEl2(null);
-  };
-
-
-  
   return (
-    <Toolbar
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{
-            fontSize: 15,
-            marginTop: 2,
-            marginRight: 2,
-            marginBottom: 2,
-            borderRadius: 20,
-            backgroundColor: "#f06292",
-          }}
-          onClick={() => handleNavigation("/dashboard")}
-        >
+    <div className="header">
+      <div className="header__left">
+        <button onClick={() => go("/dashboard")} className="header__btn">
           AROMA cabinet
-        </Button>
+        </button>
 
-        <Button
-          onClick={handleMenuOpen}
-          variant="contained"
-          startIcon={<AdminPanelSettingsIcon />}
-          sx={{
-            borderRadius: 20,
-            fontSize: 15,
-            marginRight: 2,
-            backgroundColor: "#f06292",
-          }}
-        >
-          admin panel
-        </Button>
-        <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/diagnoslist");
-              handleMenuClose();
-            }}
-          >
-            <ListItemIcon>
-              <PlaylistAdd />
-            </ListItemIcon>
-            Диагнозы
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/oillist");
-              handleMenuClose();
-            }}
-          >
-            <ListItemIcon>
-              <SpaIcon />
-            </ListItemIcon>
-            Масла
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/dashboard/users");
-              handleMenuClose();
-            }}
-          >
-            <ListItemIcon>
-              <SecurityIcon />
-            </ListItemIcon>
-            Все пользователи
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/dashboard/users/new");
-              handleMenuClose();
-            }}
-          >
-            <ListItemIcon>
-              <GroupAdd />
-            </ListItemIcon>
-            Добавить пользователя
-          </MenuItem>
-        </Menu>
+        <div className="header__dropdown">
+          <button onClick={openMenu1} className="header__btn">
+            admin panel
+          </button>
 
-        {/* Карточки */}
-        <Button
-          onClick={handleMenuOpen2}
-          variant="contained"
-          startIcon={<LibraryBooksIcon />}
-          sx={{ borderRadius: 20, fontSize: 15, backgroundColor: "#f06292" }}
-        >
-          Карточки
-        </Button>
-        <Menu anchorEl={anchorEl2} open={open2} onClose={handleMenuClose2}>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/dashboard/cards");
-              handleMenuClose2();
-            }}
-          >
-            <ListItemIcon>
-              <GroupIcon />
-            </ListItemIcon>
-            Все
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/dashboard/cards/new");
-              handleMenuClose2();
-            }}
-          >
-            <ListItemIcon>
-              <AddBoxIcon />
-            </ListItemIcon>
-            <b>Создать</b>
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/unready");
-              handleMenuClose2();
-            }}
-          >
-            <ListItemIcon>
-              <ErrorOutlineTwoToneIcon />
-            </ListItemIcon>
-            Незаполненные
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleNavigation("/done");
-              handleMenuClose2();
-            }}
-          >
-            <ListItemIcon>
-              <DoneOutline />
-            </ListItemIcon>
-            Готовые
-          </MenuItem>
-        </Menu>
-      </Box>
+          {menu1 && (
+            <div className="header__menu">
+              {adminMenu.map((item) => (
+                <div
+                  key={item.path}
+                  onClick={() => {
+                    go(item.path);
+                    closeMenu1();
+                  }}
+                  className="header__menu-item"
+                >
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="header__dropdown">
+          <button onClick={openMenu2} className="header__btn">
+            Карточки
+          </button>
 
-      {/* выход */}
-      <Button
-        onClick={() => {
-          handleNavigation("/");
-        }}
-        type="submit"
-        variant="contained"
-        sx={{
-          fontSize: 15,
-          marginTop: 2,
-          marginBottom: 2,
-          borderRadius: 20,
-          backgroundColor: "#880e4f",
-        }}
-      >
+          {menu2 && (
+            <div className="header__menu">
+              {cardsMenu.map((item) => (
+                <div
+                  key={item.path}
+                  onClick={() => {
+                    go(item.path);
+                    closeMenu2();
+                  }}
+                  className="header__menu-item"
+                >
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <button className="header__logout" onClick={() => go("/")}>
         выход
-      </Button>
-    </Toolbar>
+      </button>
+    </div>
   );
-};
+}
 
 export default Header;

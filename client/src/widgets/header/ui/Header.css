@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #f8bbd0;
+}
+
+.header__left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header__btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f06292;
+  color: white;
+  cursor: pointer;
+}
+
+.header__logout {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #880e4f;
+  color: white;
+  cursor: pointer;
+}
+
+.header__menu {
+  position: absolute;
+  top: 100%; /* ВАЖНО */
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+  min-width: 180px;
+  z-index: 1000; /* ВАЖНО */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.header__menu-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.header__menu-item:hover {
+  background: #eee;
+}
+
+.header__dropdown {
+  position: relative;
+}
