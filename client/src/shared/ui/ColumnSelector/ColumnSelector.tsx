@@ -1,16 +1,20 @@
-//чекбоксы с колонками без MUI
 import "./ColumnSelector.css";
-import { cadrColumn } from "../../../shared/mocks/cardColumn";
+
+interface Column {
+  id: string;
+  label: string;
+}
 
 interface Props {
+  columns: Column[];
   selectedColumns: string[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function ColumnSelector({ selectedColumns, onChange }: Props) {
+function ColumnSelector({ columns, selectedColumns, onChange }: Props) {
   return (
     <div className="column-selector">
-      {cadrColumn.map((column) => (
+      {columns.map((column) => (
         <label key={column.id} className="column-selector__item">
           <input
             type="checkbox"

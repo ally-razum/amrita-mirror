@@ -1,7 +1,7 @@
 //только сборка!!!
 import { cadrColumn } from "../../../shared/mocks/cardColumn";
 import useClientList from "../../../features/client-list/model/useClientList";
-import ColumnSelector from "../../../features/client-list/ui/ColumnSelector";
+import ColumnSelector from "../../../shared/ui/ColumnSelector/ColumnSelector";
 import CardTableRow from "../../../features/client-list/ui/CardTableRow";
 import "./ClientList.css";
 
@@ -28,6 +28,7 @@ function ClientList() {
       <ColumnSelector
         selectedColumns={selectedColumns}
         onChange={handleColumnChange}
+        columns={cadrColumn}  
       />
 
       <div className="client-list">
