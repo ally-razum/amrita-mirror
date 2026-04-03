@@ -1,0 +1,53 @@
+.client-list {
+  max-width: 95%;
+  margin: 16px auto;
+  padding: 16px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.client-list__scroll {
+  max-height: 1000px;
+  overflow-y: auto;
+}
+
+.client-list__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 80%;
+}
+
+.client-list__th {
+  position: sticky;
+  top: 0;
+  background-color: #e0e0e0;
+  font-size: 16px;
+  white-space: nowrap;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  font-size: 16px;
+}
+
+.notification button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}

@@ -1,21 +1,9 @@
 //только сборка!!!
-
-import {
-  Table,
-  TableBody,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableCell,
-  Paper,
-  Box,
-  Snackbar,
-  Alert,
-} from "@mui/material";
 import { cadrColumn } from "../../../shared/mocks/cardColumn";
 import useClientList from "../../../features/client-list/model/useClientList";
 import ColumnSelector from "../../../features/client-list/ui/ColumnSelector";
 import CardTableRow from "../../../features/client-list/ui/CardTableRow";
+import "./ClientList.css";
 
 function ClientList() {
   const {
@@ -30,68 +18,35 @@ function ClientList() {
 
   return (
     <>
-      <Snackbar
-        open={notification.open}
-        autoHideDuration={3000}
-        onClose={handleCloseNotification}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      >
-        <Alert
-          onClose={handleCloseNotification}
-          severity="success"
-          sx={{
-            minWidth: "300px",
-            minHeight: "50px",
-            fontSize: "18px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <b>{notification.message}</b>
-        </Alert>
-      </Snackbar>
+      {notification.open && (
+        <div className="notification">
+          <span>{notification.message}</span>
+          <button onClick={handleCloseNotification}>✕</button>
+        </div>
+      )}
 
       <ColumnSelector
         selectedColumns={selectedColumns}
         onChange={handleColumnChange}
       />
 
-      <TableContainer
-        component={Paper}
-        sx={{ maxWidth: "95%", margin: "16px auto", padding: "16px" }}
-      >
-        <Box sx={{ maxHeight: "1000px", overflowY: "auto" }}>
-          <Table stickyHeader sx={{ minWidth: "80%" }}>
-            <TableHead>
-              <TableRow>
+      <div className="client-list">
+        <div className="client-list__scroll">
+          <table className="client-list__table">
+            <thead>
+              <tr>
                 {cadrColumn.map(
                   (column) =>
                     selectedColumns.includes(column.id) && (
-                      <TableCell
-                        key={column.id}
-                        sx={{
-                          whiteSpace: "nowrap",
-                          backgroundColor: "#e0e0e0",
-                          fontSize: "16px",
-                        }}
-                      >
-                        <b>{column.label}</b>
-                      </TableCell>
+                      <th key={column.id} className="client-list__th">
+                        {column.label}
+                      </th>
                     ),
                 )}
-                <TableCell
-                  sx={{
-                    whiteSpace: "nowrap",
-                    backgroundColor: "#e0e0e0",
-                    fontSize: "16px",
-                  }}
-                >
-                  <b>Действия</b>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
+                <th className="client-list__th">Действия</th>
+              </tr>
+            </thead>
+            <tbody>
               {cards.map((client) => (
                 <CardTableRow
                   key={client.id}
@@ -101,10 +56,10 @@ function ClientList() {
                   onDelete={handleDeleteClient}
                 />
               ))}
-            </TableBody>
-          </Table>
-        </Box>
-      </TableContainer>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
   );
 }
