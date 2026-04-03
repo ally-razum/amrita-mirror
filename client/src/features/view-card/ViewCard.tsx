@@ -1,11 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import { mockCards } from "../../entities/card/model/mockCards";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../app/store/store";
 import  CardForm  from "../../entities/card/ui/CardForm";
 import ErrorPage404 from "../../page/errorPage/errorPage404";
 
 function ViewCard() {
   const { cardId } = useParams<{ cardId: string }>();
-  const card = mockCards.find((c) => c.id === Number(cardId));
+  const card = useSelector((state:RootState) => state.cards.find((card) => card.id === Number(cardId)));
 
   if (!card) return <ErrorPage404 />;
 
