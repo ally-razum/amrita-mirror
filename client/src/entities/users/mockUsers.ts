@@ -1,4 +1,4 @@
-import type { User } from "./user"; // путь подставь свой
+import type { User } from "./user"; 
 
 export const users: User[] = [
   {

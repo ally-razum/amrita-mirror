@@ -26,20 +26,7 @@ function HeaderAdmin  ()  {
     navigate(path);
   };
 
-  // const handleLogout = async () => {
-  //   try {
-  //     // Отправляем запрос на сервер для выхода из аккаунта
-  //     const response = await client.get('/logout', { withCredentials: true });
-      
-  //     if (response.status === 200) {
-  //       // console.log('Пользователь успешно вышел из аккаунта');
-  //       setUser(null); // Очищаем пользователя из контекста
-  //       navigate('/'); // Перенаправляем на стартовую страницу
-  //     }
-  //   } catch (error) {
-  //     console.error('Ошибка при выходе из аккаунта:', error);
-  //   }
-  // };
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);

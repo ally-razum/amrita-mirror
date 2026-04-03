@@ -1,7 +1,7 @@
-import ClientList from "../../../widgets/ClientList/ClientList";
+import ViewCard from "../../features/view-card/ViewCard";
 
-function CardsPage() {
-  return <ClientList />;
+function ViewCardPage() {
+  return <ViewCard />;
 }
 
-export default CardsPage;
+export default ViewCardPage;

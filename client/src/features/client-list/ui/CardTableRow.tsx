@@ -1,4 +1,3 @@
-//одна строка таблицы
 import "./CardTableRow.css";
 import { diagnosis } from "../../../shared/mocks/diagnosis";
 import { oils } from "../../../shared/mocks/oils";

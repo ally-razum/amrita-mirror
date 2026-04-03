@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout";
-import Login from "../../page/login/Login";
 import MainPage from "../../page/mainPage/MainPage";
-import UserList from "../../page/users/usersList";
 import ErrorPage403 from "../../page/errorPage/errorPage403";
-import UserCard from "../../page/users/userCard";
-import CreateCard from "../../features/create-card/ui/CreateCard";
-import ViewCard from "../../features/view-card/ViewCard";
-import EditCard from "../../features/edit-card/ui/EditCard";
 import CardsPage from "../../pages/CardsPage";
+import CreateCardPage from "../../pages/CreateCardPage";
+import EditCardPage from "../../pages/EditCardPage";
+import ViewCardPage from "../../pages/ViewCardPage";
+import LoginPage from "../../pages/LoginPage";
+import UsersPage from "../../pages/UsersPage";
+import ErrorPage404 from "../../page/errorPage/errorPage404";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: "dashboard",
@@ -28,19 +28,19 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <CardsPage/>,
+            element: <CardsPage />,
           },
           {
             path: "new",
-            element: <CreateCard />,
+            element: <CreateCardPage />,
           },
           {
             path: ":cardId",
-            element: <ViewCard />,
+            element: <ViewCardPage />,
           },
           {
             path: ":cardId/edit",
-            element: <EditCard />,
+            element: <EditCardPage />,
           },
         ],
       },
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <UserList />,
+            element: <UsersPage />,
           },
           {
             path: "new",
@@ -57,11 +57,15 @@ const router = createBrowserRouter([
           },
           {
             path: ":userId",
-            element: <UserCard />,
+            element: <ErrorPage403 />,
           },
         ],
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage404 />,
   },
 ]);
 

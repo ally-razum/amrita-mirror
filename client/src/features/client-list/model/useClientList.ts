@@ -1,4 +1,3 @@
-//вся логика , стейт, хендлеры
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,7 +1,7 @@
-import ClientList from "../../../widgets/ClientList/ClientList";
+import CreateCard from "../../features/create-card/ui/CreateCard";
 
-function CardsPage() {
-  return <ClientList />;
+function CreateCardPage() {
+  return <CreateCard />;
 }
 
-export default CardsPage;
+export default CreateCardPage;

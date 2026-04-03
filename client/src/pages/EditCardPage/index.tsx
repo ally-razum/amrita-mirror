@@ -1,7 +1,7 @@
-import ClientList from "../../../widgets/ClientList/ClientList";
+import EditCard from "../../features/edit-card/ui/EditCard";
 
-function CardsPage() {
-  return <ClientList />;
+function EditCardPage() {
+  return <EditCard />;
 }
 
-export default CardsPage;
+export default EditCardPage;
