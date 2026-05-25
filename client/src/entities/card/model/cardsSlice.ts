@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { mockCards } from "../../card/model/mockCards";
+import { mockCards } from "./mocks/mockCards";
 import type { Card } from "./types";
 
 const storageKey = "cards";

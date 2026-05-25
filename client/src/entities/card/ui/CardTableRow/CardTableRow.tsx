@@ -1,6 +1,6 @@
 import "./CardTableRow.css";
-import { diagnosis } from "../../../../shared/mocks/diagnosis";
-import { oils } from "../../../../shared/mocks/oils";
+import { diagnosis } from "../../model/mocks/diagnosis";
+import { oils } from "../../model/mocks/oils";
 import type { Card } from "../../../../entities/card/model/types";
 
 interface Props {

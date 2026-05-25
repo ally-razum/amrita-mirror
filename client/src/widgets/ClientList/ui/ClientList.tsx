@@ -1,7 +1,7 @@
 //только сборка!!!
-import { cadrColumn } from "../../../shared/mocks/cardColumn";
+import { cadrColumn } from "../../../features/client-list/model/cardColumn";
 import useClientList from "../../../features/client-list/model/useClientList";
-import ColumnSelector from "../../../shared/ui/ColumnSelector/ColumnSelector";
+import ColumnSelector from "../../../features/client-list/ui/ColumnSelector/ColumnSelector";
 
 import "./ClientList.css";
 import CardTableRow from "../../../entities/card/ui/CardTableRow/CardTableRow";
@@ -29,7 +29,7 @@ function ClientList() {
       <ColumnSelector
         selectedColumns={selectedColumns}
         onChange={handleColumnChange}
-        columns={cadrColumn}  
+        columns={cadrColumn}
       />
 
       <div className="client-list">

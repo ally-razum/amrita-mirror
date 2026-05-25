@@ -1,6 +1,6 @@
 import { userColumns } from "../../../entities/users/userColumns";
 import useUserList from "../../../features/user-list/model/useUserList";
-import ColumnSelector from "../../../shared/ui/ColumnSelector/ColumnSelector";
+import ColumnSelector from "../../../features/client-list/ui/ColumnSelector/ColumnSelector";
 import UserTableRow from "../../../features/user-list/ui/UserTableRow";
 import "./UserList.css";
 

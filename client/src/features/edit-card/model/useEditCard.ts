@@ -3,8 +3,8 @@ import type { Card } from "../../../entities/card/model/types";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCard } from "../../../entities/card/model/cardsSlice";
 import type { AppDispatch, RootState } from "../../../app/store/store";
-import { validateCard } from "../../../shared/lib/validateCard";
-import useCardForm from "../../../shared/lib/useCardForm";
+import { validateCard } from "../../../entities/card/model/validateCard";
+import useCardForm from "../../../entities/card/model/useCardForm";
 
 function useEditCard(id: number) {
   const navigate = useNavigate();

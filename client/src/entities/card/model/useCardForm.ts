@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Card } from "../../entities/card/model/types";
+import type { Card } from "./types";
 
 function useCardForm(initialData?: Partial<Card>) {
   const [data, setData] = useState<Partial<Card>>( // не все поля есть, форма в процессе заполнения

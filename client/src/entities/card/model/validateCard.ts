@@ -1,4 +1,4 @@
-import type { Card } from "../../entities/card/model/types";
+import type { Card } from "./types";
 
 const fullNameRegex = /^[A-Za-zА-Яа-я]+ [A-Za-zА-Яа-я]+ [A-Za-zА-Яа-я]+$/;
 const phoneRegex = /^[\d\s\-+]*$/;

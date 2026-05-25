@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCard } from "../../../entities/card/model/cardsSlice";
 import type { AppDispatch, RootState } from "../../../app/store/store";
-import { cadrColumn } from "../../../shared/mocks/cardColumn";
+import { cadrColumn } from "./cardColumn";
 
 function useClientList() {
   const navigate = useNavigate();
@@ -31,10 +31,8 @@ function useClientList() {
   const handleViewClient = (id: number) => navigate(`/dashboard/cards/${id}`);
 
   const handleDeleteClient = (id: number) => {
-     const confirmed = window.confirm(
-       "Вы уверены что хотите удалить карточку?",
-     );
-     if (!confirmed) return;
+    const confirmed = window.confirm("Вы уверены что хотите удалить карточку?");
+    if (!confirmed) return;
     dispatch(deleteCard(id));
     setNotification({ open: true, message: "Карточка удалена!" });
   };
