@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import useHeaderMenu from "../model/useHeaderMenu";
 import { adminMenu, cardsMenu } from "../config/menuItems";
+import { useClickOutside } from "../../../shared/lib/hooks/useClickOutside";
 import "./Header.css";
 
 function Header() {
   const navigate = useNavigate();
   const { menu1, menu2, openMenu1, closeMenu1, openMenu2, closeMenu2 } =
     useHeaderMenu();
+
+  const adminMenuRef = useClickOutside(() => closeMenu1());
+  const cardsMenuRef = useClickOutside(() => closeMenu2());
 
   const go = (path: string) => {
     navigate(path);
@@ -19,7 +23,7 @@ function Header() {
           AROMA cabinet
         </button>
 
-        <div className="header__dropdown">
+        <div ref={adminMenuRef} className="header__dropdown">
           <button onClick={openMenu1} className="header__btn">
             admin panel
           </button>
@@ -41,7 +45,7 @@ function Header() {
             </div>
           )}
         </div>
-        <div className="header__dropdown">
+        <div ref={cardsMenuRef}  className="header__dropdown">
           <button onClick={openMenu2} className="header__btn">
             Карточки
           </button>

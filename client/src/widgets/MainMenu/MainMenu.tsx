@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./MainMenu.css";
 
 // 1. Выносим описание ссылок в компактный массив
-const MENU_ITEMS = [
+const MenuItems = [
   { to: "/dashboard/cards", label: "Таблица клиентов", icon: "👥" },
   { to: "/dashboard/cards/new", label: "Создать карточку", icon: "➕" },
   { to: "/diagnoslist", label: "Диагнозы", icon: "📋" },
@@ -21,7 +21,7 @@ export function MainMenu() {
       </div>
 
       <nav className="main-menu__nav">
-        {MENU_ITEMS.map((item) => (
+        {MenuItems.map((item) => (
           <Link key={item.to} to={item.to} className="main-menu__btn">
             <span className="main-menu__icon">{item.icon}</span>
             {item.label}
