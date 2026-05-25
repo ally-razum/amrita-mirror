@@ -1,6 +1,6 @@
-import { diagnosis } from "../../../shared/mocks/diagnosis";
-import { oils } from "../../../shared/mocks/oils";
-import type { Card } from "../../../entities/card/model/types";
+import { diagnosis } from "../../../../shared/mocks/diagnosis";
+import { oils } from "../../../../shared/mocks/oils";
+import type { Card } from "../../model/types";
 import "./CardForm.css";
 
 interface Props {

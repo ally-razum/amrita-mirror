@@ -1,18 +1,18 @@
-import CardForm from "../../../entities/card/ui/CardForm";
+import CardForm from "../../../entities/card/ui/CardForm/CardForm";
 import useEditCard from "../model/useEditCard";
 import { useParams } from "react-router-dom";
 
 function EditCard() {
-    const { cardId } = useParams<{ cardId: string }>();
-    const {
-      data,
-      photoPreview,
-      errors,
-      errorMessage,
-      handleChange,
-      handlePhotoChange,
-      handleSubmit,
-    } = useEditCard(Number(cardId));
+  const { cardId } = useParams<{ cardId: string }>();
+  const {
+    data,
+    photoPreview,
+    errors,
+    errorMessage,
+    handleChange,
+    handlePhotoChange,
+    handleSubmit,
+  } = useEditCard(Number(cardId));
 
   return (
     <div className="card-page">

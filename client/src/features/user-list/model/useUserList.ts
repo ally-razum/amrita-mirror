@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { users } from "../../../entities/users/mockUsers";
+import { users } from "../../../entities/users/model/mockUsers";
 import { userColumns } from "../../../entities/users/userColumns";
 
 function useUserList() {

@@ -1,4 +1,3 @@
-//todo БЕЗ МЮИ
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -9,14 +8,14 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // имитирование входа по логину и паролю (в реальном кейсе был запрос на сервер к бд)
+  const handleLogin = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     navigate("/dashboard");
   };
 
   return (
     <div className="signin">
-      <div className="signin__container">
+      <form onSubmit={handleLogin} className="signin__container">
         <label className="signin__label">Введите логин</label>
         <input
           type="text"
@@ -35,10 +34,10 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="signin__button" onClick={handleLogin}>
+        <button className="signin__button" type="submit">
           Войти
         </button>
-      </div>
+      </form>
     </div>
   );
 }

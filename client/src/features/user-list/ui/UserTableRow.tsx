@@ -1,5 +1,5 @@
 import "./UserTableRow.css";
-import type { User } from "../../../entities/users/user";
+import type { User } from "../../../entities/users/model/types";
 
 interface Props {
   user: User;

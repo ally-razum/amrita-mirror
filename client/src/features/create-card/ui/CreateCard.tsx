@@ -1,4 +1,4 @@
-import CardForm from "../../../entities/card/ui/CardForm";
+import CardForm from "../../../entities/card/ui/CardForm/CardForm";
 import useCreateCard from "../model/useCreateCard";
 
 function CreateCard() {

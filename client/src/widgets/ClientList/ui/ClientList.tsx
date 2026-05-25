@@ -2,8 +2,9 @@
 import { cadrColumn } from "../../../shared/mocks/cardColumn";
 import useClientList from "../../../features/client-list/model/useClientList";
 import ColumnSelector from "../../../shared/ui/ColumnSelector/ColumnSelector";
-import CardTableRow from "../../../features/client-list/ui/CardTableRow";
+
 import "./ClientList.css";
+import CardTableRow from "../../../entities/card/ui/CardTableRow/CardTableRow";
 
 function ClientList() {
   const {

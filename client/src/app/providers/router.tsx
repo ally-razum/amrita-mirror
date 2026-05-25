@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout";
-import MainPage from "../../page/mainPage/MainPage";
-import ErrorPage403 from "../../page/errorPage/errorPage403";
+import MainPage from "../../pages/mainPage/MainPage";
+import ErrorPage403 from "../../pages/errorPage/errorPage403";
 import CardsPage from "../../pages/CardsPage";
 import CreateCardPage from "../../pages/CreateCardPage";
 import EditCardPage from "../../pages/EditCardPage";
 import ViewCardPage from "../../pages/ViewCardPage";
 import LoginPage from "../../pages/LoginPage";
 import UsersPage from "../../pages/UsersPage";
-import ErrorPage404 from "../../page/errorPage/errorPage404";
+import ErrorPage404 from "../../pages/errorPage/errorPage404";
 
 const router = createBrowserRouter([
   {
