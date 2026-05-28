@@ -1,6 +1,6 @@
 import "./CardTableRow.css";
-import { diagnosis } from "../../model/mocks/diagnosis";
-import { oils } from "../../model/mocks/oils";
+// import { diagnosis } from "../../model/mocks/diagnosis";
+// import { oils } from "../../model/mocks/oils";
 import type { Card } from "../../../../entities/card/model/types";
 
 interface Props {
@@ -19,24 +19,26 @@ function CardTableRow({ client, selectedColumns, onView, onDelete }: Props) {
         <td>{client.cardFullName}</td>
       )}
       {selectedColumns.includes("cardPhone") && <td>{client.cardPhone}</td>}
-      {selectedColumns.includes("cardHealthComplaints") && (
+      {/* {selectedColumns.includes("cardHealthComplaints") && (
         <td>{client.cardHealthComplaints}</td>
-      )}
+      )} */}
       {selectedColumns.includes("cardDeliveryAddress") && (
-        <td>{client.cardDeliveryAddress}</td>
+        <td>{client.title}</td>
       )}
       {selectedColumns.includes("cardFinalDiagnosis") && (
         <td>
-          {diagnosis.find((d) => d.id === client.cardFinalDiagnosis)?.dName ||
-            "-"}
+          {client.title}
+          {/* {diagnosis.find((d) => d.id === client.cardFinalDiagnosis)?.dName ||
+            "-"} */}
         </td>
-      )}
+      )} 
       {selectedColumns.includes("cardOilFromList") && (
         <td>
-          {oils.find((o) => o.id === client.cardOilFromList)?.oilName || "-"}
+          {client.title}
+          {/* {oils.find((o) => o.id === client.cardOilFromList)?.oilName || "-"} */}
         </td>
       )}
-      {selectedColumns.includes("cardRecepi") && <td>{client.cardRecepi}</td>}
+       {selectedColumns.includes("cardRecepi") && <td>{client.cardRecepi}</td>} 
 
       <td className="card-row__actions">
         <button

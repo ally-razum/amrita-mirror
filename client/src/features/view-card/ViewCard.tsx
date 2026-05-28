@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../app/store/store";
-import CardForm from "../../entities/card/ui/CardForm/CardForm";
+import CardForm from "../../entities/card/ui/CardForm/CardForm.tsx";
 import ErrorPage404 from "../../pages/errorPage/errorPage404";
 
 function ViewCard() {

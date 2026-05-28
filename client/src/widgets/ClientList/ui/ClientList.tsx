@@ -2,13 +2,13 @@
 import { cadrColumn } from "../../../features/client-list/model/cardColumn";
 import useClientList from "../../../features/client-list/model/useClientList";
 import ColumnSelector from "../../../features/client-list/ui/ColumnSelector/ColumnSelector";
-
 import "./ClientList.css";
 import CardTableRow from "../../../entities/card/ui/CardTableRow/CardTableRow";
+import { useGetQuestionsQuery } from "../../../features/get-questions/api/api";
 
 function ClientList() {
   const {
-    cards,
+    // cards,
     selectedColumns,
     notification,
     handleColumnChange,
@@ -16,6 +16,13 @@ function ClientList() {
     handleDeleteClient,
     handleCloseNotification,
   } = useClientList();
+
+  const {data} = useGetQuestionsQuery({
+    page: 1,
+    title: "React",
+  });
+  console.log(data);
+  
 
   return (
     <>
@@ -49,7 +56,7 @@ function ClientList() {
               </tr>
             </thead>
             <tbody>
-              {cards.map((client) => (
+              {data?.data?.map((client) => (
                 <CardTableRow
                   key={client.id}
                   client={client}
